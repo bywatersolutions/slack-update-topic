@@ -1,7 +1,7 @@
 from slack_bolt import App
-import os
 import datetime
 import math
+import os
 
 def get_channel_id(self, channel_name):
     for result in self.client.conversations_list():
@@ -10,7 +10,7 @@ def get_channel_id(self, channel_name):
                 return channel['id']
     return None
 
-weeks = math.floor( ( (datetime.datetime.utcnow() - datetime.datetime(2024,1,1)).days / 7 ) )
+weeks = math.floor( ( (datetime.datetime.now(datetime.UTC) - datetime.datetime(2024,1,1,0,0,0,0,datetime.UTC)).days / 7 ) )
 
 topic = ""
 if weeks % 2 == 0:
